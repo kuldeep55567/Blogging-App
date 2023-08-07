@@ -14,7 +14,7 @@ const Navbar = () => {
           <Link to="/about"><i class="fa-solid fa-address-card"></i> About</Link>
         </li>
         <li className="navbar__item">
-          <a href="/contact"><i class="fa-solid fa-address-book"></i> Contact Us</a>
+          <Link to="/contact"><i class="fa-solid fa-address-book"></i> Contact Us</Link>
         </li>
         <li className="navbar__item">
           <Link to="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</Link>
