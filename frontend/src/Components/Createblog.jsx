@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../Css/Blog.css';
-
-const CreateBlog = ({setBlogs}) => {
+import Modal from './Modal';
+const CreateBlog = ({ setBlogs }) => {
   const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -13,7 +13,11 @@ const CreateBlog = ({setBlogs}) => {
       [name]: value,
     }));
   };
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
@@ -22,7 +26,7 @@ const CreateBlog = ({setBlogs}) => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:4500/create-blog', {
+      const response = await fetch('http://3.108.252.117:4500/create-blog', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,12 +40,16 @@ const CreateBlog = ({setBlogs}) => {
         setBlogs((prevBlogs) => [...prevBlogs, data.post]);
         setFormData({ title: '', content: '' });
       } else {
-        console.error(data.message);
+        setModalMessage('Log in first');
+        setIsModalOpen(true);
       }
     } catch (error) {
       console.error('Error creating blog post:', error);
+      setModalMessage(error.message);
+      setIsModalOpen(true);
     }
   };
+
   return (
     <div className="create-blog-form" id='hero'>
       <h2>Create a New Blog Post</h2>
@@ -69,6 +77,7 @@ const CreateBlog = ({setBlogs}) => {
         </div>
         <button type="submit" className='publish'>Publish</button>
       </form>
+      <Modal isOpen={isModalOpen} onClose={closeModal} message={modalMessage} />
     </div>
   );
 };

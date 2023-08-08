@@ -9,7 +9,7 @@ const [blogs, setBlogs] = useState([]);
       console.log('User is not logged in or token is missing.');
       return;
     }
-    fetch('http://localhost:4500/myblogs', {
+    fetch('http://3.108.252.117:4500/myblogs', {
       headers: {
         Authorization: token,
       },

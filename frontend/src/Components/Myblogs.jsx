@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const ProfileSection = ({ blogs }) => {
   const [commentCounts, setCommentCounts] = useState({});
   useEffect(() => {
-    fetch('http://localhost:4500/posts/with-comments')
+    fetch('http://3.108.252.117:4500/posts/with-comments')
       .then((response) => response.json())
       .then((data) => {
         const commentCounts = {};
