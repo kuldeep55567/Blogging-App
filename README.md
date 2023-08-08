@@ -59,9 +59,9 @@ HOST=<database_host>
 DIALECT=mysql
 PORT=<database_port>
 SECRET_KEY=<your_secret_key>
-
+```
 ## Contributors
 
-- [Your Name](https://github.com/kuldeep55567)
+- Kuldeep Tiwari (https://github.com/kuldeep55567)
 
 Feel free to contribute to this project by submitting issues or pull requests. Happy blogging with HubSpot!
