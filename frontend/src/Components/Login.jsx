@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import Modal from './Modal';
-const Login = () => {
+const Login = ({setIsLoggedIn}) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const handleChange = (e) => {
@@ -32,6 +33,8 @@ const Login = () => {
         setModalMessage('Login Successfull');
         setIsModalOpen(true);
         localStorage.setItem('token', data.token);
+        setIsLoggedIn(true);
+        navigate('/profile');
       } else {
         console.error(data.message);
       }

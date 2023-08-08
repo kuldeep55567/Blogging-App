@@ -25,7 +25,7 @@ const [blogs, setBlogs] = useState([]);
 
   return (
     <div>
-      <ProfileSection blogs={blogs} />
+      <ProfileSection blogs={blogs} setBlogs={setBlogs}/>
       <CreateBlog setBlogs={setBlogs} />
     </div>
   );

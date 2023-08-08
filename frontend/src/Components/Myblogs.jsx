@@ -1,21 +1,38 @@
 import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
-const ProfileSection = ({ blogs }) => {
-  const [commentCounts, setCommentCounts] = useState({});
-  useEffect(() => {
-    fetch('http://3.108.252.117:4500/posts/with-comments')
-      .then((response) => response.json())
-      .then((data) => {
-        const commentCounts = {};
-        data.forEach((post) => {
-          commentCounts[post.id] = post.commentCount;
-        });
-        setCommentCounts(commentCounts);
-      })
-      .catch((error) => {
-        console.error('Error fetching comment counts:', error);
+import Modal from './Modal';
+import EditBlog from './Editblog';
+const ProfileSection = ({ blogs,setBlogs }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const [editBlog, setEditBlog] = useState(null);
+  const handleDelete = async (postId) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.log('User is not logged in or token is missing.');
+      return;
+    }
+    try {
+      const response = await fetch(`http://3.108.252.117:4500/delete-blog/${postId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: token,
+        },
       });
-  }, []);
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data.message);
+        setModalMessage('Deleted Successfully');
+        setIsModalOpen(true);
+        const updatedBlogs = blogs.filter((blog) => blog.id !== postId);
+        setBlogs(updatedBlogs);
+      } else {
+        console.error(data.message);
+      }
+    } catch (error) {
+      console.error('Error deleting blog post:', error);
+    }
+  };
   const formatDateTime = (dateTimeString) => {
     const options = {
       year: 'numeric',
@@ -26,6 +43,10 @@ const ProfileSection = ({ blogs }) => {
       second: 'numeric',
     };
     return new Date(dateTimeString).toLocaleString(undefined, options);
+    
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
   return (
     <div className="profile-section">
@@ -36,13 +57,34 @@ const ProfileSection = ({ blogs }) => {
             <div key={blog.id} className='myblog'>
               <h2>{blog.title}</h2>
               <p>Date : {formatDateTime(blog.createdAt)}</p>
+              <div id='tobe'>
               <Link to={`/post/${blog.id}`}>Read More</Link>
+              <div id='btns2'>
+              <button onClick={() => setEditBlog(blog)} className='edit'>Edit <i class="fa-solid fa-pen-to-square"></i></button>
+              <button onClick={() => handleDelete(blog.id)} className='delete'>Delete <i class="fa-solid fa-trash"></i></button>
+              </div>
+              </div>
+              {editBlog === blog && (
+                <EditBlog
+                  blog={blog}
+                  onUpdate={(updatedBlog) => {
+                    setEditBlog(null);
+                    const updatedBlogs = blogs.map((b) =>
+                      b.id === updatedBlog.id ? updatedBlog : b
+                    );
+                    setBlogs(updatedBlogs);
+                    console.log(updatedBlogs)
+                  }}
+                  onCancel={()=>setEditBlog(null)}
+                />
+              )}
             </div>
           ))}
         </ul>
       ) : (
         <p id='not'>No blogs found for the user.</p>
       )}
+      <Modal isOpen={isModalOpen} onClose={closeModal} message={modalMessage} />
     </div>
   );
 };

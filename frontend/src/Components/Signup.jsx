@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 const SignUp = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
   })
+  const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const handleChange = (e) => {
@@ -32,6 +33,7 @@ const SignUp = () => {
       if (response.ok) {
         setModalMessage('Registered Successfully');
         setIsModalOpen(true);
+        navigate('/login')
       } else {
         console.error(data.message); 
       }

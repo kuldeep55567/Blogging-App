@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Login from './Components/Login';
@@ -8,14 +9,18 @@ import BlogDetails from './Components/BlogDetails';
 import Profile from './Components/Profile';
 import About from './Components/About';
 import ContactPage from './Components/Contact';
-import Footer from './Components/Footer'
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout}/>
       <Routes>
         <Route path="/" element={<PostList />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/contact" element={<ContactPage />} />
