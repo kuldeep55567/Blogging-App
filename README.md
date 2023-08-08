@@ -1,6 +1,6 @@
-# MarkHub - Online Blogging Application
+# HubSpot - Online Blogging Application
 
-MarkHub is an online blogging application where users can read and create blogs on various topics. It provides a platform for users to share their thoughts and insights with the community. The application is built using a modern tech stack including React, Node.js, Express, MySQL, AWS EC2, and RDS.
+HubSpot is an online blogging application where users can read and create blogs on various topics. We are dedicated to providing a platform where users can engage, learn, and share their knowledge with the global community. We believe in the power of diverse perspectives, and our mission is to empower individuals like you to showcase your expertise, passions, and unique insights through the art of blogging.
 
 ## Features
 
@@ -27,37 +27,41 @@ MarkHub is an online blogging application where users can read and create blogs 
 
 ### User Routes
 
-- `POST /signup`: Register a new user.
-- `POST /login`: Log in an existing user.
+- `POST http://3.108.252.117:4500/signup`: Register a new user.
+- `POST http://3.108.252.117:4500/login`: Log in an existing user.
 
 ### Blog Post Routes
 
-- `GET /posts/:id?`: Retrieve all blog posts or a specific post by ID. Supports searching by query parameter.
-- `GET /post/:postId/comments`: Get all comments for a specific blog post.
-- `POST /create-blog`: Create a new blog post. Requires user authentication.
-- `POST /post/:postId/comment`: Add a comment to a specific blog post. Requires user authentication.
-- `POST /post/:postId/like`: Like a specific blog post. Requires user authentication.
+- `GET http://3.108.252.117:4500/posts/:id?`: Retrieve all blog posts or specific posts by ID. Supports searching by a query parameter.
+- `GET http://3.108.252.117:4500/post/:postId/comments`: Get all comments for a specific blog post.
+- `POST http://3.108.252.117:4500/create-blog`: Create a new blog post. Requires user authentication.
+- `POST http://3.108.252.117:4500/post/:postId/comment`: Add a comment to a specific blog post. Requires user authentication.
+- `POST http://3.108.252.117:4500/post/:postId/like`: Like a specific blog post. Requires user authentication.
 
 ### User-Specific Routes
 
-- `GET /myblogs`: Retrieve all blog posts created by the logged-in user. Requires user authentication.
+- `GET http://3.108.252.117:4500/myblogs`: Retrieve all blog posts created by the logged-in user. Requires user authentication.
 
 ## Getting Started
 
 1. Clone the repository: `git clone <repository_url>`
 2. Install dependencies: `npm install`
-3. Set up your MySQL database and update the connection configuration in `config/config.js`.
-4. Start the server: `npm start`
-5. Access the application in your web browser at `http://localhost:3000`
+3. Set up your MySQL database and update the connection configuration in `config/db.js`.
+4. Set the .env file
+5. Start the server: `npm start
+6. Access the application in your web browser at `http://localhost:3000`
+
+```dotenv
+DB=<database_name>
+USER=<database_user>
+PASSWORD=<database_password>
+HOST=<database_host>
+DIALECT=mysql
+PORT=<database_port>
+SECRET_KEY=<your_secret_key>
 
 ## Contributors
 
-- [Your Name](https://github.com/yourusername)
+- [Your Name](https://github.com/kuldeep55567)
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-Feel free to contribute to this project by submitting issues or pull requests. Happy blogging with MarkHub!
+Feel free to contribute to this project by submitting issues or pull requests. Happy blogging with HubSpot!
