@@ -9,7 +9,7 @@ const [blogs, setBlogs] = useState([]);
       console.log('User is not logged in or token is missing.');
       return;
     }
-    fetch('http://3.108.252.117:4500/myblogs', {
+    fetch('http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/myblogs', {
       headers: {
         Authorization: token,
       },

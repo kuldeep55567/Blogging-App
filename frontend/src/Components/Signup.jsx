@@ -21,14 +21,13 @@ const SignUp = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://3.108.252.117:4500/signup', {
+      const response = await fetch('http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-
       const data = await response.json();
       if (response.ok) {
         setModalMessage('Registered Successfully');

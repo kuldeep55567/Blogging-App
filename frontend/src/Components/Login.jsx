@@ -20,7 +20,7 @@ const Login = ({setIsLoggedIn}) => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://3.108.252.117:4500/login', {
+      const response = await fetch('http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
