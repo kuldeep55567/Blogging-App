@@ -1,6 +1,6 @@
 # HubSpot - Online Blogging Application
 
-HubSpot is an online blogging application where users can read and create blogs on various topics. We are dedicated to providing a platform where users can engage, learn, and share their knowledge with the global community. We believe in the power of diverse perspectives, and our mission is to empower individuals like you to showcase your expertise, passions, and unique insights through the art of blogging.
+HubSpot is an online blogging application where users can read and create blogs on various topics. We are dedicated to providing a platform where users can engage, learn, and share their knowledge with the global community. We believe in the power of diverse perspectives, and our mission is to empower individuals like you to showcase your expertise, passions, and unique insights through blogging.
 
 ## Features
 
@@ -12,9 +12,9 @@ HubSpot is an online blogging application where users can read and create blogs 
 
 4. **Search Functionality:** Users can easily search for their favorite topics or specific blog posts.
 
-5. **Editing your Blogs:** Users can now update their older blogs with new content and add ons.
+5. **Editing your Blogs:** Users can now update their older blogs with new content and add-ons.
 
-6. **Deleting your Blogs:** Users can remove the unwanted blogs from the app
+6. **Deleting your Blogs:** Users can remove unwanted blogs from the app
 
 ## Tech Stack
 
@@ -24,6 +24,8 @@ HubSpot is an online blogging application where users can read and create blogs 
 - MySQL: A relational database management system for storing blog data.
 - AWS EC2: Elastic Compute Cloud provides scalable computing capacity in the AWS cloud.
 - AWS RDS: Relational Database Service offers managed database solutions.
+- AWS S3: Scalable, secure cloud storage for data, files, and backups.
+- Load Balancer: Distributing traffic across the servers to manage the load.
 - JSON Web Tokens (JWT): A compact, URL-safe means of representing claims between two parties.
 - Sequelize: An ORM (Object-Relational Mapping) for Node.js and MySQL.
 
