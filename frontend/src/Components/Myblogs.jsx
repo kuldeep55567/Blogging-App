@@ -13,7 +13,7 @@ const ProfileSection = ({ blogs,setBlogs }) => {
       return;
     }
     try {
-      const response = await fetch(`http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/delete-blog/${postId}`, {
+      const response = await fetch(`http://blogging-app-74919372.ap-south-1.elb.amazonaws.com:4500/delete-blog/${postId}`, {
         method: 'DELETE',
         headers: {
           Authorization: token,

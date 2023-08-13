@@ -9,7 +9,7 @@ const BlogDetails = () => {
   const [commentText, setCommentText] = useState('');
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   useEffect(() => {
-    fetch(`http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/posts/${postId}`)
+    fetch(`http://blogging-app-74919372.ap-south-1.elb.amazonaws.com:4500/posts/${postId}`)
       .then((response) => response.json())
       .then((data) => {
         setPost(data);
@@ -20,7 +20,7 @@ const BlogDetails = () => {
         setLoading(false);
       });
 
-    fetch(`http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/post/${postId}/comments`)
+    fetch(`http://blogging-app-74919372.ap-south-1.elb.amazonaws.com:4500/post/${postId}/comments`)
       .then((response) => response.json())
       .then((data) => {
         setComments(data);
@@ -38,7 +38,7 @@ const BlogDetails = () => {
       return;
     }
 
-    fetch(`http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/post/${postId}/comment`, {
+    fetch(`http://blogging-app-74919372.ap-south-1.elb.amazonaws.com:4500/post/${postId}/comment`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

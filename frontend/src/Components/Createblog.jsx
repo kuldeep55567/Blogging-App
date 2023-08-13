@@ -26,7 +26,7 @@ const CreateBlog = ({ setBlogs }) => {
       return;
     }
     try {
-      const response = await fetch('http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/create-blog', {
+      const response = await fetch('http://blogging-app-74919372.ap-south-1.elb.amazonaws.com:4500/create-blog', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

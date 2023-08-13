@@ -31,22 +31,22 @@ HubSpot is an online blogging application where users can read and create blogs 
 
 ### User Routes
 
-- `POST http://3.108.252.117:4500/signup`: Register a new user.
-- `POST http://3.108.252.117:4500/login`: Log in an existing user.
+- `POST http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/signup`: Register a new user.
+- `POST http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/login`: Log in an existing user.
 
 ### Blog Post Routes
 
-- `GET http://3.108.252.117:4500/posts/:id?`: Retrieve all blog posts or specific posts by ID. Supports searching by a query parameter.
-- `GET http://3.108.252.117:4500/post/:postId/comments`: Get all comments for a specific blog post.
-- `POST http://3.108.252.117:4500/create-blog`: Create a new blog post. Requires user authentication.
-- `POST http://3.108.252.117:4500/post/:postId/comment`: Add a comment to a specific blog post. Requires user authentication.
-- `POST http://3.108.252.117:4500/post/:postId/like`: Like a specific blog post. Requires user authentication.
-- `PUT http://3.108.252.117:4500/edit-blog/:id`: Edit  a specific blog post. Requires user authentication.
-- `DELETE http://3.108.252.117:4500/delete-blog/:id`: Delete  a specific blog post. Requires user authentication.
+- `GET http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/posts/:id?`: Retrieve all blog posts or specific posts by ID. Supports searching by a query parameter.
+- `GET http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/post/:postId/comments`: Get all comments for a specific blog post.
+- `POST http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/create-blog`: Create a new blog post. Requires user authentication.
+- `POST http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/post/:postId/comment`: Add a comment to a specific blog post. Requires user authentication.
+- `POST http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/post/:postId/like`: Like a specific blog post. Requires user authentication.
+- `PUT http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/edit-blog/:id`: Edit  a specific blog post. Requires user authentication.
+- `DELETE http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/delete-blog/:id`: Delete  a specific blog post. Requires user authentication.
 
 ### User-Specific Routes
 
-- `GET http://3.108.252.117:4500/myblogs`: Retrieve all blog posts created by the logged-in user. Requires user authentication.
+- `GET http://Blogging-App-74919372.ap-south-1.elb.amazonaws.com:4500/myblogs`: Retrieve all blog posts created by the logged-in user. Requires user authentication.
 
 ## Getting Started
 

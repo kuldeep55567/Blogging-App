@@ -11,7 +11,7 @@ const PostList = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/posts');
+      const response = await fetch('http://blogging-app-74919372.ap-south-1.elb.amazonaws.com:4500/posts');
       const data = await response.json();
       setPosts(data);
     } catch (error) {
@@ -32,7 +32,7 @@ const PostList = () => {
   const handleSearch = async (searchQuery) => {
     try {
       if (searchQuery) {
-        const response = await fetch(`http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/posts?search=${encodeURIComponent(searchQuery)}`);
+        const response = await fetch(`http://blogging-app-74919372.ap-south-1.elb.amazonaws.com:4500/posts?search=${encodeURIComponent(searchQuery)}`);
         const data = await response.json();
         setPosts(data);
       } else {

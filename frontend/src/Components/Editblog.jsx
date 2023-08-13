@@ -33,7 +33,7 @@ const EditBlog = ({ blog, onUpdate,onCancel }) => {
       return;
     }
     try {
-      const response = await fetch(`http://blogging-load-balancer-989706543.ap-south-1.elb.amazonaws.com:4500/edit-blog/${blog.id}`, {
+      const response = await fetch(`http://blogging-app-74919372.ap-south-1.elb.amazonaws.com:4500/edit-blog/${blog.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
